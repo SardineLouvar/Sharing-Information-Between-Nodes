@@ -1,8 +1,10 @@
 # Sharing-Information-Between-Nodes
-
 The following Godot 4.3 program demonstrates multiple approaches to sharing information between nodes (given in different scenes), using either signals or resources. The signal method is primarily proof of concept, and I would recommend attempting the resource method first if you would like to share information between nodes.
 
 A primary example of a need to distribute information across multiple nodes is if your player has a state machine. You likely want to keep track of the direction that the player was facing before switching states, and the previous state, which is easy to do with these methods.
+
+
+#### Run one of the scenes, then press either space or left mouse click to test the code. The results should show in the console.
 
 ## Signals method (trial_state_signal_bus.tscn):
 
