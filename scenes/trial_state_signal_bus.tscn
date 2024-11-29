@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://c47u340yw6ncq"]
+
+[ext_resource type="Script" path="res://scripts (signal ver)/sharer_logic/signal_sharer.gd" id="1_igxdb"]
+[ext_resource type="Script" path="res://scripts (signal ver)/FSM/state_machine.gd" id="2_v4siy"]
+[ext_resource type="Script" path="res://scripts (signal ver)/tests/first.gd" id="3_vemdc"]
+[ext_resource type="Script" path="res://scripts (signal ver)/tests/second.gd" id="4_r1odq"]
+[ext_resource type="Script" path="res://scripts (signal ver)/tests/third.gd" id="5_ul1kc"]
+[ext_resource type="Script" path="res://scripts (signal ver)/tests/fourth.gd" id="6_livvs"]
+
+[node name="SignalDistribution" type="Node2D"]
+
+[node name="Signal_sharer" type="Node" parent="." node_paths=PackedStringArray("fsm")]
+unique_name_in_owner = true
+script = ExtResource("1_igxdb")
+fsm = NodePath("../FSM")
+
+[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_v4siy")
+initial_state = NodePath("First")
+
+[node name="First" type="Node" parent="FSM" node_paths=PackedStringArray("signal_distributor")]
+script = ExtResource("3_vemdc")
+signal_distributor = NodePath("../../Signal_sharer")
+
+[node name="Second" type="Node" parent="FSM" node_paths=PackedStringArray("signal_distributor")]
+script = ExtResource("4_r1odq")
+signal_distributor = NodePath("../../Signal_sharer")
+
+[node name="Third" type="Node" parent="FSM"]
+script = ExtResource("5_ul1kc")
+
+[node name="Fourth" type="Node" parent="FSM"]
+script = ExtResource("6_livvs")

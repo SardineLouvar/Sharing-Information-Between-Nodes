@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="InformationResource" load_steps=2 format=3 uid="uid://cllbk552pd0vi"]
+
+[ext_resource type="Script" path="res://scripts, resources (resource ver)/information_transfer_resource_script.gd" id="1_lpsk8"]
+
+[resource]
+script = ExtResource("1_lpsk8")
+information = 0
